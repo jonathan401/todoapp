@@ -1,3 +1,3 @@
 # todoapp
 a simple todo app with local storage
-live site url [todo app](https://jonathan-todo.netlify.app/)
+check the live site here [todo app](https://jonathan-todo.netlify.app/)
