@@ -14,6 +14,10 @@ body {
     font-family: sans-serif;
 }
 
+main {
+    max-width: 300px;
+}
+
 .hide {
     display: none !important;
 }
@@ -73,4 +77,10 @@ main h2,
     outline: none;
     border-color: none;
     box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+}
+
+@media screen and (min-width: 789px) {
+    main {
+        max-width: none;
+    }
 }
