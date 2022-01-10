@@ -15,7 +15,7 @@ const generateTemplate = (string) => {
   const html = `
     <li>
     <span>${string}</span>
-    <span class="delete"></span>
+    <i class="fas fa-trash delete"></i>
     </li>
     `;
   todoContainer.innerHTML += html;
@@ -74,6 +74,7 @@ addForm.addEventListener('submit', e => {
 // adding a delete functionality to the todos
 todoContainer.addEventListener('click', e => {
     if(e.target.classList.contains('delete')){
+        console.log(e.target.parentElement)
         e.target.parentElement.remove();
     }
     updateStorage();

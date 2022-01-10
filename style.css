@@ -43,13 +43,9 @@ main h2,
     padding: 12px 15px;
 }
 
-.todos li span:nth-child(2) {
-    width: 15px;
-    height: 15px;
-    background-color: #352f5b;
-    display: block;
-    border-radius: 50%;
+.todos li i {
     cursor: pointer;
+    display: block;
 }
 
 .addform {
