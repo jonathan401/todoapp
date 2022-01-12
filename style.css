@@ -15,7 +15,7 @@ body {
 }
 
 main {
-    max-width: 300px;
+    max-width: 400px;
 }
 
 .hide {
@@ -34,7 +34,6 @@ main h2,
 }
 
 .todos {
-    max-width: 400px;
     list-style: none;
 }
 
