@@ -78,8 +78,8 @@ main h2,
     box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
 }
 
-@media screen and (min-width: 789px) {
+@media screen and (min-width: 768px) {
     main {
-        max-width: none;
+        width: 600px;
     }
 }
