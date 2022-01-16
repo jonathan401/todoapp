@@ -4,7 +4,7 @@ const addForm = document.querySelector('form.addform');
 const filterForm = document.querySelector('form.search');
 const deleteBtn = document.querySelector('.delete');
 
-// deifining a function that will get all todos
+// defining a function that will get all todos
 const getTodos = () => {
     const todos = document.querySelectorAll('.todos li');
     return todos;
@@ -12,14 +12,27 @@ const getTodos = () => {
 
 // function to generate template for the todos
 const generateTemplate = (string) => {
-  const html = `
+    const html = `
     <li>
     <span>${string}</span>
     <i class="fas fa-trash delete"></i>
     </li>
     `;
-  todoContainer.innerHTML += html;
+    todoContainer.innerHTML += html;
 };
+
+
+// function to update the html with data from local storage
+const updateUi = () => {
+    /* created a variable that gets all the values from local storage by accessing them 
+    and then i loop through all of them and pass them to the generateTemplate function that adds all of them to 
+    the dom */
+    const storedTodos = JSON.parse(localStorage.getItem('todos'));
+    storedTodos.forEach(item => {
+        generateTemplate(item);
+    });
+};
+
 
 // function to filter the todos 
 filterForm.addEventListener('keyup', e => {
@@ -33,7 +46,12 @@ filterForm.addEventListener('keyup', e => {
             result.classList.remove('hide');
         }
     })
-})
+});
+
+// function to stop the filter field from reloading the page from refreshing
+filterForm.addEventListener('submit', e => {
+    e.preventDefault();
+});
 
 // function to update the local storage with the current todos
 const updateStorage = () => {
@@ -49,16 +67,6 @@ const updateStorage = () => {
     localStorage.setItem('todos', todoContent);
 };
 
-// function to update the html with data from local storage
-const updateUi = () => {
-    /* created a variable that gets all the values from local storage by accessing them 
-    and then i loop through all of them and pass them to the generateTemplate function that adds all of them to 
-    the dom */
-    const storedTodos = JSON.parse(localStorage.getItem('todos'));
-    storedTodos.forEach(item => {
-    generateTemplate(item);
-    });
-};
 
 // form input
 addForm.addEventListener('submit', e => {
