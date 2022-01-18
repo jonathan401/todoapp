@@ -33,6 +33,11 @@ main h2,
     text-align: center;
 }
 
+.empty-page {
+    margin: 1rem auto;
+    text-align: center;
+}
+
 .todos {
     list-style: none;
 }
