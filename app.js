@@ -2,6 +2,7 @@
 const todoContainer = document.querySelector('.todos');
 const addForm = document.querySelector('form.addform');
 const filterForm = document.querySelector('form.search');
+const emptyPage = document.querySelector('.empty-page');
 const deleteBtn = document.querySelector('.delete');
 
 // defining a function that will get all todos
@@ -73,6 +74,9 @@ addForm.addEventListener('submit', e => {
     e.preventDefault();
     const todo = addForm.todo.value.trim();
     addForm.reset();
+    if(!emptyPage.classList.contains('hide')) {
+        emptyPage.classList.add('hide');
+    }
     if(todo.length) {
         generateTemplate(todo);
     }
@@ -82,9 +86,12 @@ addForm.addEventListener('submit', e => {
 // adding a delete functionality to the todos
 todoContainer.addEventListener('click', e => {
     if(e.target.classList.contains('delete')){
-        console.log(e.target.parentElement)
         e.target.parentElement.remove();
+        if(!getTodos().length) {
+            emptyPage.classList.remove('hide');
+        }
     }
+    
     updateStorage();
 });
 
